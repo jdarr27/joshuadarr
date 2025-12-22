@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua P. Darr - Local News Innovation Research</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #000E54 0%, #003C71 100%);
+            color: white;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000E54 0%, #003C71 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #D44500;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-text .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            color: #D44500;
+            font-weight: 600;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary {
+            background: #D44500;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-orange {
+            background: #D44500;
+            color: white;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            background: white;
+        }
+        
+        footer .container {
+            background: transparent;
+        }
+        
+        section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        section .container {
+            background: transparent;
+        }
+        
+        .lab-section {
+            background: linear-gradient(135deg, #FFF5E6 0%, #FFE8CC 100%);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #000E54;
+        }
+        
+        .section-intro {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+        
+        /* Lab Section */
+        .lab-section {
+            background: linear-gradient(135deg, #FFF5E6 0%, #FFE8CC 100%);
+        }
+        
+        .lab-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 5px solid #D44500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .highlight-card h3 {
+            color: #000E54;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .highlight-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Research Section */
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .research-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #D44500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .research-card h3 {
+            color: #000E54;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .research-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .research-card .key-finding {
+            background: #FFF5E6;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid #D44500;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .research-card .key-finding strong {
+            color: #D44500;
+        }
+        
+        /* Projects/Writing Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 3px solid #000E54;
+        }
+        
+        .project-card h3 {
+            color: #000E54;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        
+        .project-card .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #D44500;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Partnership Section */
+        .partnership-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #D44500;
+        }
+        
+        .partnership-content p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #000E54;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            color: white;
+            line-height: 1.8;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        footer h3 {
+            color: #D44500;
+            margin-bottom: 1rem;
+        }
+        
+        footer a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: #D44500;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: #000E54;
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                max-height: 400px;
+            }
+            
+            nav ul li {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"></div>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lab.html">Local NExT Lab</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="writing.html">Writing</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <img src="headshot.jpg" alt="Joshua P. Darr" class="hero-image">
+            <div class="hero-text">
+                <h1>Joshua P. Darr</h1>
+                <p class="tagline">Testing What Works in Local News</p>
+                <p class="subtitle">Director, Local NExT Lab | Senior Researcher, IDJC | Carnegie Fellow | Syracuse University</p>
+                <div class="cta-buttons">
+                    <a href="lab.html" class="btn btn-primary">Explore Local NExT Lab</a>
+                    <a href="https://idjc.syracuse.edu" class="btn btn-secondary" target="_blank">Visit IDJC</a>
+                    <a href="cv.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="lab" class="lab-section">
+        <div class="container">
+            <h2>Local NExT Lab</h2>
+            <p class="section-intro">
+                The Local News Experimental Testing Lab conducts rigorous experiments to understand what works in 
+                local journalism. We partner with newsrooms to test innovations, then share insights across the industry 
+                to help strengthen local news everywhere.
+            </p>
+            
+            <div style="margin-bottom: 2rem;">
+                <a href="lab-one-pager.pdf" class="btn btn-orange" target="_blank">Download Lab One-Pager (PDF)</a>
+            </div>
+            
+            <div class="lab-highlights">
+                <div class="highlight-card">
+                    <h3>🔬 Experimental Research</h3>
+                    <p>We use A/B testing, field experiments, and survey research to validate what actually engages local 
+                    news audiences. No assumptions—just evidence.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>🤝 Newsroom Partnerships</h3>
+                    <p>Working directly with local news organizations to test real innovations in real newsrooms, 
+                    creating actionable insights for the industry.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>📊 Industry Impact</h3>
+                    <p>Translating academic findings into practical recommendations that newsrooms can implement to 
+                    better serve their communities.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>📚 Academic Evidence Repository</h3>
+                    <p>Building a searchable database of academic research on local news in partnership with Rebuild 
+                    Local News to help policymakers access evidence supporting local journalism initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="research">
+        <div class="container">
+            <h2>Research</h2>
+            <p class="section-intro">
+                I study how local news affects political behavior, how campaigns strategize in different media environments, 
+                and how we can strengthen local journalism as civic infrastructure. My work combines rigorous experimental 
+                methods with real-world impact.
+            </p>
+            
+            <div class="research-areas">
+                <div class="research-card">
+                    <h3>Local News & Democracy</h3>
+                    <p>
+                        What happens to communities when local news disappears? My research examines how local media 
+                        shapes political knowledge, participation, and polarization. I've studied newspaper closures, 
+                        news deserts, and the civic consequences of declining local journalism.
+                    </p>
+                    <div class="key-finding">
+                        <strong>Key Finding:</strong> When local newspapers close, communities see decreased political 
+                        engagement and increased partisan polarization, with voters relying more on national partisan news.
+                    </div>
+                </div>
+                
+                <div class="research-card">
+                    <h3>Campaign Strategy</h3>
+                    <p>
+                        How do political campaigns adapt to changing media landscapes? I analyze field office placement, 
+                        advertising strategies, and how campaigns target voters in different information environments.
+                    </p>
+                    <div class="key-finding">
+                        <strong>Key Finding:</strong> Presidential campaigns strategically locate field offices in areas 
+                        with local newspapers to maximize media coverage and volunteer mobilization.
+                    </div>
+                </div>
+                
+                <div class="research-card">
+                    <h3>News Innovation & Engagement</h3>
+                    <p>
+                        What newsroom innovations actually work? Through experimental research with local news organizations, 
+                        I test audience engagement strategies, content approaches, and sustainable journalism models.
+                    </p>
+                    <div class="key-finding">
+                        <strong>Key Finding:</strong> Testing is revealing what draws audiences to local news and how 
+                        newsrooms can build sustainable relationships with their communities.
+                    </div>
+                </div>
+                
+                <div class="research-card">
+                    <h3>Media Effects & Polarization</h3>
+                    <p>
+                        How does media consumption shape political attitudes and behavior? I study partisan media effects, 
+                        TV news coverage patterns, and how different media choices influence voters' understanding of politics.
+                    </p>
+                    <div class="key-finding">
+                        <strong>Key Finding:</strong> TV news systematically overrepresents ideologically extreme members of Congress, 
+                        making American politics appear more polarized than it actually is.
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; text-align: center;">
+                <a href="research.html" class="btn btn-orange">View Full Publication List</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2>Current Projects</h2>
+            <p class="section-intro">
+                Recent and ongoing work exploring local journalism, civic engagement, and democratic participation.
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>The Politics of Local Journalism</h3>
+                    <span class="status">In Development</span>
+                    <p>
+                        Examining how local news coverage affects political behavior and democratic participation, 
+                        with implications for journalism practice and policy.
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>After Audience</h3>
+                    <span class="status">In Development</span>
+                    <p>
+                        Developing arguments for how local journalism should function as civic infrastructure rather 
+                        than just content delivery, rethinking the relationship between newsrooms and communities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Work Together</h2>
+            <div class="partnership-content">
+                <p>
+                    I consult with news organizations, foundations, and policymakers on local journalism strategy, 
+                    audience research, and sustainable models. The Local NExT Lab partners with newsrooms to test 
+                    innovations and share learnings industry-wide.
+                </p>
+                <p>
+                    Interested in research collaboration, consulting, or speaking engagements?
+                </p>
+                <a href="mailto:jpdarr@syr.edu" class="btn btn-orange">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Joshua P. Darr</h3>
+                    <p>Associate Professor<br>
+                    Director, Local NExT Lab<br>
+                    S.I. Newhouse School of Public Communications<br>
+                    Syracuse University<br><br>
+                    Senior Researcher<br>
+                    Institute for Democracy, Journalism & Citizenship</p>
+                </div>
+                <div>
+                    <h3>Recognition</h3>
+                    <p>2022 Andrew Carnegie Fellow<br>
+                    2025 UVM Faculty Champion<br>
+                    Center for Community News</p>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <p>
+                        <a href="mailto:jpdarr@syr.edu">Email</a><br>
+                        <a href="https://scholar.google.com/citations?user=RSOzvUAAAAAJ">Google Scholar</a><br>
+                        <a href="#">LinkedIn</a><br>
+                        <a href="cv.pdf" target="_blank">CV</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

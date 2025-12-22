@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Joshua P. Darr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #000E54 0%, #003C71 100%);
+            color: white;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #000E54 0%, #003C71 100%);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .btn-orange {
+            background: #D44500;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .research-section {
+            margin-bottom: 4rem;
+            background: white;
+            padding: 2rem;
+        }
+        
+        .research-section h2 {
+            color: #000E54;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #D44500;
+        }
+        
+        .research-item {
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #D44500;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        
+        .research-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .research-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .research-header:hover {
+            background: #f8fafc;
+        }
+        
+        .research-title {
+            flex: 1;
+        }
+        
+        .research-title h3 {
+            color: #000E54;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .research-title .authors {
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 0.25rem;
+        }
+        
+        .research-title .journal {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .expand-icon {
+            color: #D44500;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .research-item.expanded .expand-icon {
+            transform: rotate(45deg);
+        }
+        
+        .research-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .research-content-inner {
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .abstract {
+            background: #FFF5E6;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            line-height: 1.7;
+        }
+        
+        .abstract strong {
+            color: #D44500;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .links {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .links a {
+            color: #000E54;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            background: #f8fafc;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .links a:hover {
+            background: #D44500;
+            color: white;
+        }
+        
+        .press-coverage {
+            margin-top: 1rem;
+        }
+        
+        .press-coverage strong {
+            color: #000E54;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .press-coverage ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .press-coverage li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .press-coverage a {
+            color: #000E54;
+        }
+        
+        .press-coverage a:hover {
+            color: #D44500;
+        }
+        
+        .book-item {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #D44500;
+            margin-bottom: 2rem;
+        }
+        
+        .book-item h3 {
+            color: #000E54;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .book-item .authors {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-item .publisher {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .simple-list {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #000E54;
+            margin-bottom: 1rem;
+        }
+        
+        .simple-list p {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+        
+        footer {
+            background: #000E54;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        footer p {
+            color: white;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: #D44500;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: #000E54;
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                max-height: 400px;
+            }
+            
+            nav ul li {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 1rem 2rem;
+            }
+            
+            .research-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Joshua P. Darr</div>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lab.html">Local NExT Lab</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="writing.html">Writing</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="page-header">
+        <h1>Research</h1>
+        <p>I research how changes in the local news environment interact with the strategies of political elites to influence American political attitudes, behavior, and knowledge.</p>
+        <div style="margin-top: 1.5rem;">
+            <a href="cv.pdf" class="btn btn-orange" target="_blank">Download Full CV (PDF)</a>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="research-section">
+            <h2>Books</h2>
+            
+            <div class="book-item">
+                <h3>Storefront Campaigning (2024)</h3>
+                <div class="authors">With Sean Whyard</div>
+                <div class="publisher">Cambridge University Press: Elements in Campaigns and Elections</div>
+                <div class="abstract">
+                    <strong>ABSTRACT</strong>
+                    Since Barack Obama's historic and unprecedented field operations in 2008 and 2012, campaigns have centralized their voter contact operations within field offices: storefronts rented in strategically chosen communities. 2020 upended that model: Joe Biden won the election without any offices (due to covid-19), while Donald Trump's campaign opened over 300. Using two decades of data on office locations and interviews with campaign staffers, we show how the strategy and impact of local field offices changed over the past 20 years, and assess whether future campaigns will invest in offices again -- or if the rebirth of storefront campaigning is over.
+                </div>
+                <div class="links">
+                    <a href="https://doi.org/10.1017/9781009443357" target="_blank">Read Book</a>
+                    <a href="https://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/darr_whyard___storefront_campaigning_executive_summary.pdf" target="_blank">Executive Summary</a>
+                </div>
+            </div>
+            
+            <div class="book-item">
+                <h3>Home Style Opinion: How Local Newspapers Can Slow Polarization (2021)</h3>
+                <div class="authors">With Matthew P. Hitt and Johanna L. Dunaway</div>
+                <div class="publisher">Cambridge University Press: Elements in Politics and Communication</div>
+                <div class="abstract">
+                    <strong>ABSTRACT</strong>
+                    Local newspapers can hold back the rising tide of political division in America by turning away from the partisan battles in Washington and focusing their opinion page on local issues. When a local newspaper in California dropped national politics from its opinion page, the resulting space filled with local writers and issues. We use a pre-registered analysis plan to show that after this quasi-experiment, politically engaged people did not feel as far apart from members of the opposing party, compared to those in a similar community whose newspaper did not change. While it may not cure all of the imbalances and inequities in opinion journalism, an opinion page that ignores national politics could help local newspapers push back against political polarization.
+                </div>
+                <div class="press-coverage">
+                    <strong>Press Coverage:</strong>
+                    <ul>
+                        <li><a href="https://www.niemanlab.org/2021/04/maybe-just-shut-up-about-national-politics-if-you-want-to-reduce-polarization/" target="_blank">Nieman Lab (April 1, 2021)</a></li>
+                        <li><a href="https://journalistsresource.org/media/political-polarization-california-opinion-local/" target="_blank">The Journalist's Resource (April 2, 2021)</a></li>
+                        <li><a href="https://www.wgbh.org/news/commentary/2021/04/07/beyond-scale-looking-for-hope-amid-the-medias-ongoing-meltdown" target="_blank">WGBH Boston (April 7, 2021)</a></li>
+                        <li><a href="https://www.desertsun.com/story/opinion/columnists/2021/03/31/desert-sun-opinion-page-study-shows-experiment-curbed-polarization/4826254001/" target="_blank">The Desert Sun (March 31, 2021)</a></li>
+                        <li>And more...</li>
+                    </ul>
+                </div>
+                <div class="links">
+                    <a href="https://www.cambridge.org/core/elements/home-style-opinion/646C3D86BDCB2E370CEB0A5D51083171" target="_blank">Read Book</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="research-section">
+            <h2>Special Issue Editor</h2>
+            
+            <div class="book-item">
+                <h3>Media Policy for an Informed Citizenry: Revisiting the Information Needs of Communities for Democracy in Crisis (2023)</h3>
+                <div class="authors">Co-edited with Nik Usher, Philip Napoli, and Michael Miller</div>
+                <div class="publisher">ANNALS of the American Academy of Political and Social Science, 2023</div>
+                <div class="abstract">
+                    <strong>ABSTRACT</strong>
+                    This volume of The ANNALS revisits and updates a call made by scholars in the early 2010s for public policy to respond to the market failure of local news. Organized into four parts—policy, supply, demand, and adaptation—this volume is committed to the proposition that people need information about their communities in order to navigate everyday life, and that those information needs are inextricably intertwined with other basic necessities like sustenance, transportation, housing, health, and safety. However, local and regional newspapers face an existential threat to their continued economic survival that undermines their ability to do even basic, routine coverage of civic institutions and communities. This volume demonstrates that professional journalism is one of many ways to support communities' information needs.
+                </div>
+                <div class="links">
+                    <a href="https://journals.sagepub.com/toc/anna/707/1" target="_blank">Read Issue</a>
+                    <a href="https://journals.sagepub.com/doi/full/10.1177/00027162231219550" target="_blank">Introductory Essay</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="research-section">
+            <h2>Peer-Reviewed Articles</h2>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Breaking New Ground: Field Office Strategies in the 2024 Presidential Election</h3>
+                        <div class="authors">Sean Whyard and Joshua P. Darr</div>
+                        <div class="journal">Presidential Studies Quarterly, 55(3): e70004 (2025)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We use original data on the 2024 election to show that the Trump and Harris campaigns dramatically reduced their investments in physical field offices relative to 2008, 2012, and 2016. Analyses of the determinants of field office placement reveal notable departures from prior cycles.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1111/psq.70004" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>How the Engagement Journalism Movement is Changing Political News Content: An Applied-Research Study</h3>
+                        <div class="authors">Sue Robinson, Margarita Orozco, and Joshua P. Darr</div>
+                        <div class="journal">Journalism & Mass Communication Quarterly (2025)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            Analyzing a large dataset of political stories published by journalists in training programs, we employed both quantitative and qualitative techniques to find significant differences between 2018, 2020, and 2022 political coverage: fewer horse-race (game) framed stories, more content considered to be "engaged," more transparent stories, and somewhat of a boost in solutions-oriented content.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1177/10776990251318649" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Can Americans' trust in local news be trusted? The emergence, sources, and implications of the local news trust advantage</h3>
+                        <div class="authors">Erik Peterson, Joshua P. Darr, Maxwell Allamong, and Michael Henderson</div>
+                        <div class="journal">American Journal of Political Science (2025)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We find unfamiliar news outlets are trusted more when they have a local cue in their name. In surveys where people evaluate digital sources covering their community, this heuristic leads the public to trust unreliable information providers that signal a local focus more than high-quality sources that do not.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1111/ajps.12969" target="_blank">Read Article</a>
+                            <a href="https://doi.org/10.31235/osf.io/j8r5d" target="_blank">Pre-print</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Leaving a Legacy: Shifting Media Use and American Democratic Attitudes</h3>
+                        <div class="authors">Joshua P. Darr and Moriah Harman</div>
+                        <div class="journal">Political Behavior, 47(3): 1339-1362 (2024)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We use a three-wave panel survey from 2012-2014 to assess the relationship between changes in self-reported news diets and opinions about American elections and democracy. Switching out of local newspapers is associated with a significant decrease in faith in elections but does not appear to influence support for the broader U.S. system of government.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1007/s11109-024-09992-0" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Scrolling Headlines and Clicking Stories: Content Differences and Implications Associated with Increased Scrollability of News</h3>
+                        <div class="authors">Jessica Feezell, Kathleen Searles, John Wagner, Joshua P. Darr, Ray Pingree, Mingxiao Sui, and Brian Watson</div>
+                        <div class="journal">Journal of Information Technology and Politics (2024)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            In this study, we use a replica newsfeed to track the stories participants stroll by and click on (N = 1,051), and complement this with a content analysis of the headlines and stories. We find that headlines are more negative in tone compared to stories, and people are more likely to click on negative stories. With the exception of affective polarization, we find little difference between those who scroll and those who click across a variety of political behaviors.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1080/19331681.2024.2414001" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>How Sticky is Pink Slime? Assessing the Credibility of Deceptive Local Media</h3>
+                        <div class="authors">Joshua P. Darr</div>
+                        <div class="journal">ANNALS of the American Academy of Political and Social Science, 707(1): 109-124 (2023)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            I use a survey experiment to assess how readers respond to the same headline delivered to them as a fake newspaper, a fake website, or a real television station. Respondents rated the fake local newspaper as less credible than a real television station or a fake local website, but they rated fake local websites as credibly as real local television.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1177/00027162231214696" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Should Campaigns Respond to Electability Arguments?</h3>
+                        <div class="authors">Joshua P. Darr and Robyn L. Stiles</div>
+                        <div class="journal">Journal of Political Marketing, 21(1): 41-55 (2022)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            In our experiments, a Democratic candidate is described as viable in the primary but unelectable in the runoff, and Democratic voters are encouraged to strategically vote for a more acceptable Republican to advance to the runoff. We find that when respondents see a campaign respond to an argument against their electability, it significantly improves perceptions of that candidate's electability.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1080/15377857.2018.1538923" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/should_campaigns_respond_-_jpm_preprint.pdf" target="_blank">Ungated</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/should_campaigns_respond_-_supplemental_appendix.pdf" target="_blank">Appendix</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Partisan media effects beyond one-shot experimental designs</h3>
+                        <div class="authors">Kathleen Searles, Joshua P. Darr, Mingxiao Sui, Raymond J. Pingree, Nathan P. Kalmoe, and Brian K. Watson</div>
+                        <div class="journal">Political Science Research & Methods, 10(1): 206-214 (2022)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We find that sustained exposure to a feed that features out-party news media attenuates partisans' beliefs that Fox News is unfair, but not MSNBC. Unexpectedly, repeated exposure to in-party news also increased partisans' beliefs that Fox News is unfair. Our results update our understanding of media hostility in an online news environment characterized by a diversity of outlets.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1017/psrm.2021.21" target="_blank">Read Article</a>
+                            <a href="https://doi.org/10.7910/DVN/SABH51" target="_blank">Replication Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Gubernatorial elections change demand for local newspapers</h3>
+                        <div class="authors">Allison M.N. Archer and Joshua P. Darr</div>
+                        <div class="journal">American Politics Research, 50(1): 52-66 (2022)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We analyze partisan and non-partisan newspapers in Virginia and New Jersey during their off-cycle gubernatorial elections from 1934-2007, when there was no competition from federal elections. We replicate prior work and find that the relative readership of newspapers associated with the winning party declines after the gubernatorial election.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1177/1532673X211046252" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Seeing Spanish: The Effects of Language-Based Media Choices on Resentment and Belonging</h3>
+                        <div class="authors">Joshua P. Darr, Brittany N. Perry, Johanna L. Dunaway, and Mingxiao Sui</div>
+                        <div class="journal">Political Communication, 37(4): 488-511 (2020)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We find that seeing articles about non-immigration politics in Spanish, as an option next to English articles, significantly raises racial resentment towards Hispanics among White Democrats. Among Spanish-speaking Latinos, seeing a political news article option in Spanish increases feelings of inclusion and belonging, even when it is not about a racialized issue like immigration.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1080/10584609.2020.1713268" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/darr_dunaway_perry_sui_-_sl_media.pdf" target="_blank">Ungated</a>
+                            <a href="https://doi.org/10.7910/DVN/VOW9OB" target="_blank">Replication Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Abandoning the Ground Game? Field Organization in the 2016 Elections</h3>
+                        <div class="authors">Joshua P. Darr</div>
+                        <div class="journal">Presidential Studies Quarterly, 50(1): 163-175 (2020)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            Using original data on the locations of campaign field offices in 2016, I show that there was less field investment on both sides than in 2012; field office placement was less strategically aggressive; there was less self-reported voter contact in areas with field offices; and smaller estimated effects of a local field presence than in previous elections.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1111/psq.12612" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/darr_-_field_offices_-_psq.pdf" target="_blank">Ungated</a>
+                            <a href="https://doi.org/10.7910/DVN/YECLJW" target="_blank">Replication Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>As Seen on TV? How Gatekeeping Makes the U.S. House Seem More Extreme</h3>
+                        <div class="authors">Jeremy Padgett, Johanna L. Dunaway, and Joshua P. Darr</div>
+                        <div class="journal">Journal of Communication, 69(6): 696-719 (2019)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            When we model on-air statements by members of Congress as a function of legislator and institutional characteristics, we reveal a gatekeeping function that vastly overrepresents extreme partisans on both sides of the aisle, for network and cable outlets alike. Gatekeeping processes reflect structural-economic biases towards extreme and conflictual content rather than network-specific partisan biases.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1093/joc/jqz039" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/as_seen_on_tv_-_joc_-_padgett_dunaway_darr.pdf" target="_blank">Ungated</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Who'll Stop the Rain? Repeated Disasters and Attitudes Towards Government</h3>
+                        <div class="authors">Joshua P. Darr, Sarah D. Cate, and Daniel S. Moak</div>
+                        <div class="journal">Social Science Quarterly, 100(7): 2581-2593 (2019)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We use an original survey of Louisianans to assess the role of Katrina experience in performance assessments of FEMA and the Louisiana state government after the 2016 floods, and find a significant negative relationship: flood aid applicants in 2016 rated state government much lower, but only if they also applied for Katrina aid in 2005. Prior experience with government agencies establishes expectations of responsibility that endure years later.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1111/ssqu.12633" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/ssq_-_wholl_stop_the_rain_-_as_accepted.pdf" target="_blank">Ungated</a>
+                            <a href="https://doi.org/10.7910/DVN/UYV3LE" target="_blank">Replication Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Crime News Effects and Democratic Accountability: Experimental Evidence from Repeated Exposure in a Multi-Week Online Panel</h3>
+                        <div class="authors">Nathan Kalmoe, Raymond Pingree, Brian Watson, Mingxiao Sui, Joshua P. Darr, and Kathleen Searles</div>
+                        <div class="journal">International Journal of Public Opinion Research, 31(3): 506-527 (2019)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We experimentally test how leader approval changes when crime loses prominence in news for a sustained period. We create an online news environment coding real news in real-time, then experimentally filter news for nationally-diverse U.S. panelists over one week. We find causal evidence that reducing crime news raises presidential approval and depresses problem importance for crime.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1093/ijpor/edy023" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/ijpor_preprint_-_crime_news___democratic_accountability.pdf" target="_blank">Ungated</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Collision with Collusion: Partisan Reaction to the Trump-Russia Scandal</h3>
+                        <div class="authors">Joshua P. Darr, Nathan P. Kalmoe, Kathleen Searles, Mingxiao Sui, Raymond J. Pingree, Brian K. Watson, Kirill Bryanov, and Martina Santia</div>
+                        <div class="journal">Perspectives on Politics, 17(3): 772-787 (2019)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We find that Republicans randomly assigned to see more headlines about a presidential scandal reacted more negatively than Democrats or Independents, rating President Trump's performance lower and expressing more negative emotions about him. Intense media focus on a story can alter partisans' evaluations of politicians by shifting the balance of headlines.
+                        </div>
+                        <div class="links">
+                            <a href="https://www.cambridge.org/core/journals/perspectives-on-politics/article/collision-with-collusion-partisan-reaction-to-the-trumprussia-scandal/5041A52BC944B8E21D8C207B3FC8B046" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/trump-russia_preprint.pdf" target="_blank">Pre-print</a>
+                            <a href="https://doi.org/10.7910/DVN/XSGYWA" target="_blank">Replication Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Earning Iowa: Local Newspapers and the Invisible Primary</h3>
+                        <div class="authors">Joshua P. Darr</div>
+                        <div class="journal">Social Science Quarterly, 100(1): 320-327 (2019)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            Can presidential candidates influence their coverage in Iowa's smaller local newspapers during the months leading up to the caucuses? I use an original dataset of campaign press releases and local newspaper coverage to show that press releases were used primarily for information dissemination in Iowa in 2015-16, while small, weekly community newspapers hardly covered the campaign.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1111/ssqu.12565" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/darr_-_earning_iowa_ssq.pdf" target="_blank">Ungated</a>
+                            <a href="https://doi.org/10.7910/DVN/PNCKTN" target="_blank">Replication Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Newspaper Closures Polarize Voting Behavior</h3>
+                        <div class="authors">Joshua P. Darr, Matthew P. Hitt, and Johanna L. Dunaway</div>
+                        <div class="journal">Journal of Communication, 68(6): 1007-1028 (2018)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We assess the impact of newspaper closure on polarized voting, using genetic matching to compare counties that are statistically similar on the observables but for the loss of a local newspaper. We identify a small but significant causal decrease in split-ticket voting in presidential and senatorial elections in these matched communities: in areas where a newspaper closes, split-ticket voting decreases by 1.9 percent.
+                        </div>
+                        <div class="press-coverage">
+                            <strong>Winner of the AEJMC Lynda Lee Kaid Award</strong> (best published paper in political communication, 2018)
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1093/joc/jqy051" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/darr_et_al._-_newspaper_closures_jcomm__as_accepted_.pdf" target="_blank">Ungated</a>
+                            <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/P7RVGF" target="_blank">Replication Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Checking Facts and Fighting Back: Why Journalists Should Defend Their Profession</h3>
+                        <div class="authors">Raymond Pingree, Brian Watson, Mingxiao Sui, Kathleen Searles, Nathan Kalmoe, Joshua P. Darr, Kirill Bryanov, and Martina Santia</div>
+                        <div class="journal">PLoS ONE 13(12): e0208600 (2018)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            What would happen if journalists spoke up more in defense of their profession? A five-day field experiment manipulated whether an online news portal included fact check stories and opinion pieces defending journalism. We found that fact checking was beneficial in terms of three democratically desirable outcomes – media trust, epistemic political efficacy, and future news use intent – only when stories defending journalism were present.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1371/journal.pone.0208600" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Resurgent Mass Partisanship Revisited: The Role of Media Choice in Clarifying Elite Ideology</h3>
+                        <div class="authors">Joshua P. Darr and Johanna L. Dunaway</div>
+                        <div class="journal">American Politics Research, 46(6): 943-970 (2018)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We examine whether cable news choice shapes respondents' ability to correctly identify Democrats as the more liberal party, and Republicans as more conservative. Using cross-sectional and panel data, we find that partisan news consumers—particularly those watching Fox News—are better able to identify the positions and ideologies of partisan elites. Partisan news may help citizens participate more effectively by helping them identify the ideological orientation of the major parties and candidates.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1177/1532673X17735042" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/resurgent_mp_apr_--_as_accepted_10.24.pdf" target="_blank">Ungated</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Reports from the Field: Earned Local Media in Presidential Campaigns</h3>
+                        <div class="authors">Joshua P. Darr</div>
+                        <div class="journal">Presidential Studies Quarterly, 48(2): 225-247 (2018)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            Campaigns attract attention from local media by appealing to the news values of proximity and conflict. I find that candidates receive more stories in the local press in areas where they establish a presence. By subsidizing locally framed content, campaigns can increase their local earned media, with larger effects in competitive states and areas without investments in previous elections.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1111/psq.12443" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/reports_from_the_field_psq_--_as_accepted.pdf" target="_blank">Ungated</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Presence to Press: How Campaigns Earn Local Media</h3>
+                        <div class="authors">Joshua P. Darr</div>
+                        <div class="journal">Political Communication, 33(3): 503-522 (2016)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            I employ an original data set of newspaper content and campaign investment from the 2004 and 2008 elections. I utilize a within-state matched-pairs design of newspapers from the state of Florida and a detailed content analysis of stories from 21 randomly selected days from each election cycle. I find that regional campaign presence generates positive earned media, but only in smaller newspapers.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1080/10584609.2015.1107158" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/darr_2016_-_presence_to_press__as_published_.pdf" target="_blank">Ungated</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header" onclick="toggleResearch(this)">
+                    <div class="research-title">
+                        <h3>Relying on the Ground Game: The Placement and Effects of Campaign Field Offices</h3>
+                        <div class="authors">Joshua P. Darr and Matthew S. Levendusky</div>
+                        <div class="journal">American Politics Research, 42(3): 529-548 (2014)</div>
+                    </div>
+                    <div class="expand-icon">+</div>
+                </div>
+                <div class="research-content">
+                    <div class="research-content-inner">
+                        <div class="abstract">
+                            We develop a theoretical argument about where candidates will locate field offices, and test our argument using data from recent elections. We also show that these field offices increase county-level vote share by approximately 1%, netting Obama approximately 275,000 additional votes in the 2008 election.
+                        </div>
+                        <div class="links">
+                            <a href="https://doi.org/10.1177/1532673X13500520" target="_blank">Read Article</a>
+                            <a href="http://joshuadarr.weebly.com/uploads/5/1/8/1/51819147/darr_and_levendusky_final_publication.pdf" target="_blank">Ungated</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="research-section">
+            <h2>Book Reviews</h2>
+            
+            <div class="simple-list">
+                <p>Review of <em>News for the Rich, White, and Blue: How Place and Power Distort American Journalism</em> by Nikki Usher. New York: Columbia University Press. <em>Journal of Communication</em>, 2021.</p>
+                
+                <p>Review of <em>Surprising News: How the Media Affect - And Do Not Affect - Politics</em> by Kenneth Newton. Boulder, CO: Lynne Rienner. <em>Political Studies Quarterly</em>, 2020.</p>
+                
+                <p>Review of <em>Taming Intuition: How Reflection Minimizes Partisan Reasoning and Promotes Democratic Accountability</em> by Kevin Arceneaux and Ryan Vander Wielen. New York: Cambridge University Press. <em>Public Opinion Quarterly</em>, 2018.</p>
+            </div>
+        </div>
+        
+        <div class="research-section">
+            <h2>Under Review</h2>
+            
+            <div class="simple-list">
+                <p><strong>The Politics of Local Journalism: Building Democracy through News Practice.</strong> Book proposal submitted. <em>With Sue Robinson.</em></p>
+                
+                <p><strong>The potential of participatory journalism for AI-assisted local news.</strong> (part of the Knight First Amendment Institute symposium, "Artificial Intelligence and Democratic Freedoms.") <em>Revised and resubmitted.</em></p>
+                
+                <p><strong>Assessing the effectiveness of civic local journalism training.</strong> <em>With Sue Robinson. Revised and resubmitted.</em></p>
+            </div>
+        </div>
+        
+        <div class="research-section">
+            <h2>Working Papers</h2>
+            
+            <div class="simple-list">
+                <p>Locally sourced? Asymmetric partisan responses to federalism cues.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Joshua P. Darr | <a href="mailto:jpdarr@syr.edu">jpdarr@syr.edu</a> | <a href="index.html">Back to Home</a></p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+        
+        function toggleResearch(header) {
+            const item = header.parentElement;
+            const content = item.querySelector('.research-content');
+            const inner = content.querySelector('.research-content-inner');
+            
+            item.classList.toggle('expanded');
+            
+            if (item.classList.contains('expanded')) {
+                content.style.maxHeight = inner.scrollHeight + 'px';
+            } else {
+                content.style.maxHeight = '0';
+            }
+        }
+    </script>
+</body>
+</html>

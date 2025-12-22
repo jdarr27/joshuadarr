@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - Joshua Darr</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #000E54 0%, #003C71 100%);
+            color: white;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #000E54 0%, #003C71 100%);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: white;
+        }
+        
+        footer .container {
+            background: transparent;
+        }
+        
+        .media-section {
+            margin-bottom: 4rem;
+            background: white;
+        }
+        
+        .media-section h2 {
+            color: #000E54;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #D44500;
+        }
+        
+        .media-subsection {
+            margin-bottom: 3rem;
+        }
+        
+        .media-subsection h3 {
+            color: #D44500;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .media-item {
+            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #D44500;
+        }
+        
+        .media-item a {
+            color: #000E54;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .media-item a:hover {
+            color: #D44500;
+        }
+        
+        .media-item .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        
+        footer {
+            background: #000E54;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        footer p {
+            color: white;
+        }
+        
+        footer a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: #D44500;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: #000E54;
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                max-height: 400px;
+            }
+            
+            nav ul li {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Joshua P. Darr</div>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lab.html">Local NExT Lab</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="writing.html">Writing</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="page-header">
+        <h1>Media Appearances</h1>
+        <p>Television, radio, podcasts, and interviews</p>
+    </section>
+    
+    <div class="container">
+        <div class="media-section">
+            <h2>Print & Online Interviews</h2>
+            
+            <div class="media-subsection">
+                <h3>Associated Press</h3>
+                <div class="media-item">
+                    <a href="https://apnews.com/article/2022-midterm-elections-louisiana-utilities-climate-and-environment-a5eda217fc808a9676c4cd35aabc11ec" target="_blank">Climate concerns give national attention to Louisiana race</a>
+                    <div class="date">December 9, 2022</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://apnews.com/eeb95c80bcee4574883027f67ce10784" target="_blank">California delegate wave didn't quite break as expected</a>
+                    <div class="date">March 5, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://apnews.com/03ebe30fd7e7db03bb1f5c95f6a31843" target="_blank">The delegate game: Math, timing, and how to win a nomination</a>
+                    <div class="date">January 31, 2020</div>
+                </div>
+            </div>
+            
+            <div class="media-subsection">
+                <h3>FiveThirtyEight</h3>
+                <div class="media-item">
+                    <a href="https://fivethirtyeight.com/features/our-radicalized-republic/#part3" target="_blank">Our radicalized republic</a>
+                    <div class="date">January 25, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://fivethirtyeight.com/features/whats-a-campaign-without-a-rally-how-coronavirus-could-alter-the-2020-election/" target="_blank">What's a campaign without a rally? How coronavirus could alter the 2020 election</a>
+                    <div class="date">March 17, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://fivethirtyeight.com/features/a-teen-influencer-on-what-it-was-like-to-work-for-the-bloomberg-campaign/" target="_blank">A teen 'influencer' on what it was like to work for the Bloomberg campaign</a>
+                    <div class="date">March 9, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://fivethirtyeight.com/features/youll-never-know-which-candidate-is-electable/" target="_blank">You'll never know which candidate is electable</a>
+                    <div class="date">February 7, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://fivethirtyeight.com/features/inside-the-field-offices-of-the-iowa-caucuses/" target="_blank">Inside the field offices of the Iowa caucuses</a>
+                    <div class="date">January 27, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://fivethirtyeight.com/features/the-candidates-who-are-going-all-in-on-iowa-or-new-hampshire/" target="_blank">The candidates who are going all in on Iowa or New Hampshire</a>
+                    <div class="date">May 23, 2019</div>
+                </div>
+            </div>
+            
+            <div class="media-subsection">
+                <h3>Journalist's Resource</h3>
+                <div class="media-item">
+                    <a href="https://journalistsresource.org/media/political-polarization-california-opinion-local/" target="_blank">Political polarization slowed after a California newspaper dropped national politics from its opinion pages</a>
+                    <div class="date">April 2, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://journalistsresource.org/studies/society/news-media/tv-news-extreme-partisans-congress/" target="_blank">Research: TV news outlets overrepresent extreme partisans in Congress (Plus: 4 tips for better coverage)</a>
+                    <div class="date">January 17, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://journalistsresource.org/studies/politics/polarization/political-polarization-local-news-research/" target="_blank">Political polarization increases after local newspapers close</a>
+                    <div class="date">November 19, 2018</div>
+                </div>
+            </div>
+            
+            <div class="media-subsection">
+                <h3>Bloomberg</h3>
+                <div class="media-item">
+                    <a href="https://www.bloomberg.com/news/articles/2020-03-13/coronavirus-roils-2020-race-forcing-a-virtual-campaign-season" target="_blank">Coronavirus roils 2020 race, forcing a virtual campaign season</a>
+                    <div class="date">March 13, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.bloomberg.com/news/articles/2019-10-03/impeachment-takes-oxygen-out-of-the-room-for-2020-democrats" target="_blank">Impeachment takes 'oxygen out of the room' for 2020 Democrats</a>
+                    <div class="date">October 3, 2019</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.bloomberg.com/news/articles/2019-09-21/2020-democratic-steak-fry-separates-top-tier-and-rest-of-field" target="_blank">2020 Democratic Steak Fry separates top-tier and rest of field</a>
+                    <div class="date">September 21, 2019</div>
+                </div>
+            </div>
+            
+            <div class="media-subsection">
+                <h3>Other Publications</h3>
+                <div class="media-item">
+                    <a href="https://qz.com/1935395/parler-gab-and-rumble-draw-on-50-years-of-us-partisan-history/" target="_blank">Parler, Gab, and Rumble draw on 50 years of US partisan history</a> (Quartz)
+                    <div class="date">November 19, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2020/09/08/covid-19-is-crushing-newspapers-worsening-hunger-for-accurate-information" target="_blank">COVID-19 is crushing newspapers, worsening hunger for accurate information</a> (Stateline/Pew)
+                    <div class="date">September 8, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://archive.macleans.ca/article/2020/4/1/when-winning-is-everything" target="_blank">When winning is everything</a> (MacLean's)
+                    <div class="date">April 1, 2020</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.hcn.org/issues/50.22/communities-what-you-lose-when-you-lose-local-news" target="_blank">What you lose when you lose local news</a> (High Country News)
+                    <div class="date">December 24, 2018</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.vox.com/policy-and-politics/2016/11/1/12987600/turnout-get-out-the-vote-ground-game" target="_blank">The 7 voter turnout questions that could decide the 2016 election</a> (Vox)
+                    <div class="date">November 7, 2016</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="media-section">
+            <h2>Television & Video</h2>
+            
+            <div class="media-item">
+                <a href="https://abc7ny.com/videoClip/15283775/" target="_blank">Extra time: Countdown to high-stakes showdown between Harris and Trump</a> (WABC New York City)
+                <div class="date">September 9, 2024</div>
+            </div>
+            
+            <div class="media-item">
+                <a href="https://www.msnbc.com/ali-velshi/watch/election-angst-sparks-massive-activism-from-democrats-78965829922" target="_blank">Election angst sparks massive activism among Democrats</a> (MSNBC)
+                <div class="date">February 18, 2020</div>
+            </div>
+            
+            <div class="media-item">
+                <a href="https://www.youtube.com/watch?v=U3KrZ6Sof_s" target="_blank">Nationalization, presidential politics, and the Iowa caucuses</a> (Baton Rouge Press Club)
+                <div class="date">November 4, 2019</div>
+            </div>
+            
+            <div class="media-item">
+                <a href="https://www.pechakucha.com/presentations/the-ground-game-the-hidden-impact-of-presidential-campaign-field-offices" target="_blank">The Ground Game: The Hidden Impact of Presidential Campaign Field Offices</a> (PechaKucha 20x20)
+                <div class="date">September 7, 2019</div>
+            </div>
+        </div>
+        
+        <div class="media-section">
+            <h2>Radio & Podcasts</h2>
+            
+            <div class="media-subsection">
+                <h3>National Podcasts</h3>
+                <div class="media-item">
+                    <a href="https://podcasts.apple.com/us/podcast/nicd-chat-home-style-opinion/id1477227921?i=1000548781144" target="_blank">NICD Chat - Home Style Opinion</a> (National Institute for Civil Discourse)
+                    <div class="date">January 24, 2022</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://whatworks.news/2022/01/10/how-local-news-can-ease-polarization-our-conversation-with-joshua-darr/" target="_blank">How local news can ease polarization</a> (What Works Podcast, Northeastern University)
+                    <div class="date">January 10, 2022</div>
+                </div>
+                <div class="media-item">
+                    <a href="http://www.marketplace.org/2016/02/08/elections/new-hampshire" target="_blank">When campaigning, boots are cheaper than ads</a> (Marketplace on NPR)
+                    <div class="date">February 8, 2016</div>
+                </div>
+            </div>
+            
+            <div class="media-subsection">
+                <h3>WWL Radio New Orleans</h3>
+                <div class="media-item">
+                    <a href="https://www.audacy.com/wwl/podcasts/wwl-first-news-with-tommy-tucker-20319/how-do-you-get-your-news-968045656" target="_blank">How do you get your news?</a>
+                    <div class="date">November 22, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.audacy.com/wwl/podcasts/wwl-first-news-with-tommy-tucker-20319/do-you-have-confidence-in-our-institutions-587799829" target="_blank">Do you have confidence in our institutions?</a>
+                    <div class="date">July 26, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.audacy.com/wwl/podcasts/wwl-first-news-with-tommy-tucker-20319/how-big-is-the-american-partisan-divide-523107327" target="_blank">How big is the American partisan divide?</a>
+                    <div class="date">July 5, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://wwl.radio.com/media/audio-channel/warren-looks-dem-front-runner-after-october-debate" target="_blank">Warren looks like front-runner after October debate</a>
+                    <div class="date">October 16, 2019</div>
+                </div>
+            </div>
+            
+            <div class="media-subsection">
+                <h3>Regional Radio</h3>
+                <div class="media-item">
+                    <a href="https://www.wrkf.org/show/talk-louisiana/2021-09-17/friday-september-17th-george-will-joshua-darr-bobbie-ragsdale" target="_blank">Talk Louisiana with Jim Engster</a> (WRKF Baton Rouge)
+                    <div class="date">September 17, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.wfyi.org/programs/all-in/radio/whats-happening-to-local-news" target="_blank">What's happening to local news?</a> (Indiana Public Radio)
+                    <div class="date">June 17, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.wnpr.org/post/covid-polarizing-politicians-and-cloning-elizabeth-ann" target="_blank">Covid, polarizing politicians, and the cloning of Elizabeth Ann</a> (Connecticut Public Radio)
+                    <div class="date">February 21, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://www.wpr.org/how-coverage-extreme-political-views-warps-perceptions" target="_blank">How coverage of extreme political views warps perceptions</a> (Wisconsin Public Radio)
+                    <div class="date">February 25, 2021</div>
+                </div>
+                <div class="media-item">
+                    <a href="http://www.abc.net.au/newsradio/content/s4560358.htm" target="_blank">US Presidential Nominees clash in final presidential debate</a> (ABC NewsRadio Australia)
+                    <div class="date">October 20, 2016</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Joshua P. Darr | <a href="mailto:jpdarr@syr.edu">jpdarr@syr.edu</a> | <a href="index.html">Back to Home</a></p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
