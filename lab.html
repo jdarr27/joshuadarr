@@ -41,6 +41,12 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            opacity: 0.8;
         }
         
         .menu-toggle {
@@ -274,7 +280,8 @@
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                z-index: 1000;
             }
             
             nav ul.active {
@@ -295,7 +302,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Joshua P. Darr</div>
+            <a href="index.html" class="logo">Joshua P. Darr</a>
             <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -511,30 +518,29 @@
         </div>
     </section>
     
-    <!-- VISIBLE SECTION: Academic Evidence Repository -->
-    <section id="repository">
+    <!-- VISIBLE SECTION: Local News Research Resource -->
+    <section id="lnrr">
         <div class="container">
-            <h2>Academic Evidence Repository</h2>
+            <h2>Local News Research Resource (LNRR)</h2>
             <p class="section-intro">
-                In partnership with Rebuild Local News, we're building a searchable database of 
-                academic research on local news to help policymakers access evidence supporting 
-                local journalism initiatives.
+                We're building a searchable database of academic research on local news to help 
+                policymakers, advocates, and journalists access evidence supporting local journalism 
+                initiatives.
             </p>
             
             <div class="content-card">
                 <h3>Why This Matters</h3>
                 <p>
                     Decades of academic research demonstrate the civic importance of local journalism, 
-                    but this evidence is often scattered across journals and paywalls. Our repository 
-                    makes this research accessible to policymakers, advocates, and journalists working 
-                    to strengthen local news.
+                    but this evidence is often scattered across journals and paywalls. Our resource 
+                    makes this research accessible to those working to strengthen local news.
                 </p>
             </div>
             
             <div class="content-card">
                 <h3>What's Included</h3>
                 <p>
-                    The repository catalogs peer-reviewed research examining local news effects across 
+                    The resource catalogs peer-reviewed research examining local news effects across 
                     multiple dimensions:
                 </p>
                 <ul>
@@ -549,7 +555,7 @@
             <div class="content-card">
                 <h3>Status</h3>
                 <p>
-                    Currently in development. The repository will launch with comprehensive coverage 
+                    Currently in development. The resource will launch with comprehensive coverage 
                     of research on local news effects, with ongoing updates as new research is published.
                 </p>
             </div>

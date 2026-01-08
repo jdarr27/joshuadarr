@@ -105,6 +105,13 @@
             font-weight: 700;
         }
         
+        .hero-text .affiliation {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+        
         .hero-text .tagline {
             font-size: 1.3rem;
             margin-bottom: 1rem;
@@ -372,6 +379,10 @@
                 font-size: 2rem;
             }
             
+            .hero-text .affiliation {
+                font-size: 0.9rem;
+            }
+            
             .hero-text .tagline {
                 font-size: 1.2rem;
             }
@@ -391,7 +402,8 @@
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                z-index: 1000;
             }
             
             nav ul.active {
@@ -430,8 +442,9 @@
             <img src="headshot.jpg" alt="Joshua P. Darr" class="hero-image">
             <div class="hero-text">
                 <h1>Joshua P. Darr</h1>
+                <p class="affiliation">Associate Professor | Newhouse School | Syracuse University</p>
                 <p class="tagline">Testing What Works in Local News</p>
-                <p class="subtitle">Director, Local NExT Lab | Senior Researcher, IDJC | Carnegie Fellow | Syracuse University</p>
+                <p class="subtitle">Director, Local NExT Lab | Senior Researcher, IDJC | Carnegie Fellow</p>
                 <div class="cta-buttons">
                     <a href="lab.html" class="btn btn-primary">Explore Local NExT Lab</a>
                     <a href="https://idjc.syracuse.edu" class="btn btn-secondary" target="_blank">Visit IDJC</a>
@@ -474,9 +487,9 @@
                 </div>
                 
                 <div class="highlight-card">
-                    <h3>📚 Academic Evidence Repository</h3>
-                    <p>Building a searchable database of academic research on local news in partnership with Rebuild 
-                    Local News to help policymakers access evidence supporting local journalism initiatives.</p>
+                    <h3>📚 Local News Research Resource</h3>
+                    <p>Building a searchable database of academic research on local news to help policymakers 
+                    access evidence supporting local journalism initiatives.</p>
                 </div>
             </div>
         </div>

@@ -38,6 +38,12 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            opacity: 0.8;
         }
         
         .menu-toggle {
@@ -188,7 +194,8 @@
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                z-index: 1000;
             }
             
             nav ul.active {
@@ -209,7 +216,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Joshua P. Darr</div>
+            <a href="index.html" class="logo">Joshua P. Darr</a>
             <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -230,6 +237,42 @@
     <div class="container">
         <div class="media-section">
             <h2>Print & Online Interviews</h2>
+            
+            <div class="media-subsection">
+                <h3>Recent Appearances (2023-2025)</h3>
+                <div class="media-item">
+                    <a href="https://idjc.syracuse.edu/news/" target="_blank">Carnegie Reporter profile on local news research</a> (Carnegie Corporation Reporter)
+                    <div class="date">February 11, 2025</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://idjc.syracuse.edu/news/" target="_blank">These voters backed Trump in 2024 and Democrats in 2025. What will they do in 2026?</a> (NBC News)
+                    <div class="date">December 5, 2025</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://idjc.syracuse.edu/news/" target="_blank">IDJC launches Local NExT Lab to test ideas for strengthening local news</a> (American Press Institute)
+                    <div class="date">November 7, 2025</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://idjc.syracuse.edu/news/" target="_blank">VOICES: Local journalism is our best defense against polarization</a> (Dayton Daily News)
+                    <div class="date">July 3, 2025</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://idjc.syracuse.edu/news/" target="_blank">New York Times quote on voting patterns and 2024 election</a> (New York Times)
+                    <div class="date">July 8, 2025</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://idjc.syracuse.edu/news/" target="_blank">1 in 5 Americans get their news from social media influencers</a> (CNBC)
+                    <div class="date">November 18, 2024</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://idjc.syracuse.edu/news/" target="_blank">Field offices and campaign strategy</a> (Good Authority)
+                    <div class="date">November 19, 2024</div>
+                </div>
+                <div class="media-item">
+                    <a href="https://localnewsinitiative.northwestern.edu/research/state-of-local-news/research-insights/joshua-darr/" target="_blank">Research Insights: How local news relates to voting patterns</a> (Local News Initiative/Northwestern)
+                    <div class="date">November 16, 2023</div>
+                </div>
+            </div>
             
             <div class="media-subsection">
                 <h3>Associated Press</h3>
@@ -336,6 +379,26 @@
             <h2>Television & Video</h2>
             
             <div class="media-item">
+                <a href="https://idjc.syracuse.edu/news/" target="_blank">Local media as connective tissue of communities</a> (CBS News with Charles M. Blow)
+                <div class="date">October 19, 2025</div>
+            </div>
+            
+            <div class="media-item">
+                <a href="https://abc7ny.com/videoClip/15283775/" target="_blank">Extra time: Countdown to high-stakes showdown between Harris and Trump</a> (WABC New York City)
+                <div class="date">September 9, 2024</div>
+            </div>
+            
+            <div class="media-item">
+                <a href="https://shorensteincenter.org/event/opinion-journalism-can-slow-polarization/" target="_blank">How Opinion Journalism Can Slow Polarization</a> (Harvard Shorenstein Center)
+                <div class="date">January 17, 2023</div>
+            </div>
+            
+            <div class="media-item">
+                <a href="https://www.ideastream.org/2024-07-17/why-local-news-can-slow-polarization-joshua-darr" target="_blank">Why Local News Can Slow Polarization</a> (Akron Roundtable/Ideastream Public Media)
+                <div class="date">July 17, 2024</div>
+            </div>
+            
+            <div class="media-item">
                 <a href="https://abc7ny.com/videoClip/15283775/" target="_blank">Extra time: Countdown to high-stakes showdown between Harris and Trump</a> (WABC New York City)
                 <div class="date">September 9, 2024</div>
             </div>
@@ -358,6 +421,14 @@
         
         <div class="media-section">
             <h2>Radio & Podcasts</h2>
+            
+            <div class="media-subsection">
+                <h3>Recent Appearances (2024-2025)</h3>
+                <div class="media-item">
+                    <a href="https://idjc.syracuse.edu/news/" target="_blank">The Metro: Political news and civic engagement</a> (WDET Detroit)
+                    <div class="date">February 6, 2025</div>
+                </div>
+            </div>
             
             <div class="media-subsection">
                 <h3>National Podcasts</h3>

@@ -38,6 +38,12 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            opacity: 0.8;
         }
         
         .menu-toggle {
@@ -198,7 +204,8 @@
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                z-index: 1000;
             }
             
             nav ul.active {
@@ -219,7 +226,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Joshua P. Darr</div>
+            <a href="index.html" class="logo">Joshua P. Darr</a>
             <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
             <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
