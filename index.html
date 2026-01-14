@@ -285,14 +285,14 @@
         /* Research Section */
         .research-areas {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             margin-top: 2rem;
         }
         
         .research-card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-top: 4px solid #D44500;
@@ -306,23 +306,24 @@
         
         .research-card h3 {
             color: #000E54;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
         
         .research-card p {
             color: #666;
-            line-height: 1.7;
-            margin-bottom: 1rem;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
         }
         
         .research-card .key-finding {
             background: #FFF5E6;
-            padding: 1rem;
+            padding: 0.75rem;
             border-radius: 6px;
             border-left: 3px solid #D44500;
-            margin-top: 1rem;
-            font-size: 0.95rem;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
         }
         
         .research-card .key-finding strong {
@@ -466,6 +467,12 @@
                 padding: 1rem 2rem;
             }
         }
+        
+        @media (max-width: 1024px) {
+            .research-areas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -527,34 +534,10 @@
                 to help strengthen local news everywhere.
             </p>
             
-            <div style="margin-bottom: 2rem;">
-                <a href="lab-one-pager.pdf" class="btn btn-orange" target="_blank">Download Lab One-Pager (PDF)</a>
-            </div>
             
-            <div class="lab-highlights">
-                <div class="highlight-card">
-                    <h3>🔬 Experimental Research</h3>
-                    <p>We use A/B testing, field experiments, and survey research to validate what actually engages local 
-                    news audiences. No assumptions—just evidence.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <h3>🤝 Newsroom Partnerships</h3>
-                    <p>Working directly with local news organizations to test real innovations in real newsrooms, 
-                    creating actionable insights for the industry.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <h3>📊 Industry Impact</h3>
-                    <p>Translating academic findings into practical recommendations that newsrooms can implement to 
-                    better serve their communities.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <h3>📚 Local News Research Resource</h3>
-                    <p>Building a searchable database of academic research on local news to help policymakers 
-                    access evidence supporting local journalism initiatives.</p>
-                </div>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="lab-one-pager.pdf" class="btn btn-orange" target="_blank">Download Lab One-Pager (PDF)</a>
+                <a href="lab.html" class="btn btn-primary">Learn More About the Lab</a>
             </div>
         </div>
     </section>
