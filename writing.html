@@ -1,438 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writing - Joshua Darr</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Lora', Georgia, serif;
-            line-height: 1.6;
-            color: #333;
-            background: white;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #000E54 0%, #003C71 100%);
-            color: white;
-            padding: 0.5rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .logo:hover {
-            opacity: 0.8;
-        }
-        
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        nav a:hover {
-            opacity: 0.8;
-        }
-        
-        .page-header {
-            background: linear-gradient(135deg, #000E54 0%, #003C71 100%);
-            color: white;
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-        }
-        
-        .page-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            background: white;
-        }
-        
-        footer .container {
-            background: transparent;
-        }
-        
-        .publication-section {
-            margin-bottom: 4rem;
-            background: white;
-        }
-        
-        .publication-section h2 {
-            color: #000E54;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #D44500;
-        }
-        
-        .publication-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #f8fafc;
-            border-radius: 8px;
-            border-left: 4px solid #D44500;
-        }
-        
-        .publication-item h3 {
-            color: #000E54;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .publication-item a {
-            color: #000E54;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .publication-item a:hover {
-            color: #D44500;
-        }
-        
-        .publication-item .date {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .publication-item .authors {
-            color: #666;
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-        
-        .publication-item .note {
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            padding-left: 1rem;
-        }
-        
-        footer {
-            background: #000E54;
-            color: white;
-            padding: 2rem 0;
-            margin-top: 4rem;
-            text-align: center;
-        }
-        
-        footer p {
-            color: white;
-        }
-        
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            color: #D44500;
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .page-header h1 {
-                font-size: 2rem;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            nav ul {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: #000E54;
-                flex-direction: column;
-                gap: 0;
-                width: 100%;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-                z-index: 1000;
-            }
-            
-            nav ul.active {
-                max-height: 400px;
-            }
-            
-            nav ul li {
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-            
-            nav ul li a {
-                display: block;
-                padding: 1rem 2rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Joshua P. Darr</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+html, body { background: white !important; color: #1a1828 !important; }
+@media (prefers-color-scheme: dark) { html, body { background: white !important; color: #1a1828 !important; } }
+
+:root { color-scheme: light only;
+
+  --navy: #000E54;
+  --orange: #F76900;
+  --warm-white: #FDFCFA;
+  --mid: #6b6b80;
+  --rule: #e0ddd8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Crimson Pro', Georgia, serif; background: var(--warm-white); color: #1a1828; overflow-x: hidden; }
+
+nav {
+  background: var(--navy);
+  padding: 1.25rem 3.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  position: relative;
+}
+.nav-brand { font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.9); letter-spacing: 0.08em; text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.7); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--orange); }
+.nav-links a.active { color: var(--orange); }
+
+.page-header {
+  background: var(--navy);
+  padding: 5rem 3.5rem 4rem;
+  position: relative; overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px);
+  pointer-events: none;
+}
+.page-header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+.section-tag { font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--orange); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.75rem; }
+.page-header h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: white; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+.page-header p { font-size: 1.1rem; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 560px; }
+
+.writing-body { max-width: 860px; margin: 0 auto; padding: 5rem 3.5rem; }
+
+.outlet-section { margin-bottom: 4rem; }
+.outlet-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--orange); letter-spacing: 0.18em; text-transform: uppercase;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.5rem;
+}
+
+.writing-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.writing-item:last-child { border-bottom: none; }
+.writing-item-left {}
+.writing-item a {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--navy); text-decoration: none;
+  line-height: 1.45;
+  transition: color 0.2s;
+}
+.writing-item a:hover { color: var(--orange); }
+.writing-item .authors {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.95rem; color: var(--mid);
+  font-style: italic; margin-top: 0.2rem;
+}
+.writing-item .note {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem; color: var(--mid);
+  margin-top: 0.2rem;
+}
+.writing-item .date {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem; color: var(--mid);
+  white-space: nowrap; text-align: right;
+}
+
+footer { background: #050d2e; color: rgba(255,255,255,0.5); padding: 3rem 3.5rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
+footer h4 { font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; }
+footer p { font-family: 'Outfit', sans-serif; font-size: 0.85rem; line-height: 1.9; }
+footer a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: var(--orange); }
+
+.menu-toggle { display: none; background: none; border: none; color: rgba(255,255,255,0.8); font-size: 1.6rem; cursor: pointer; padding: 0.25rem 0.5rem; line-height: 1; }
+@media (max-width: 900px) {
+  nav { padding: 1.25rem 1.5rem; }
+  .menu-toggle { display: block !important; }
+  .nav-links { display: none !important; }
+  .nav-links.active { display: flex !important; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--navy); z-index: 200; }
+  .nav-links.active li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .nav-links.active li a { display: block; padding: 1rem 1.5rem; }
+  .page-header { padding: 3.5rem 1.5rem; }
+  .writing-body { padding: 3rem 1.5rem; }
+  .writing-item { grid-template-columns: 1fr; gap: 0.25rem; }
+  .writing-item .date { text-align: left; }
+  footer { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Joshua P. Darr</a>
-            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
-            <ul id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="lab.html">Local NExT Lab</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="writing.html">Writing</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section class="page-header">
-        <h1>Commentary & Writing</h1>
-        <p>Public scholarship on local news, campaigns, and democracy</p>
-    </section>
-    
-    <div class="container">
-        <div class="publication-section">
-            <h2>FiveThirtyEight</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://fivethirtyeight.com/features/local-news-coverage-is-declining-and-that-could-be-bad-for-american-politics/" target="_blank">Local News Coverage is Declining - And That Could Be Bad for American Politics</a></h3>
-                <div class="date">June 2, 2021</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="https://fivethirtyeight.com/features/the-2020-candidates-arent-matching-obamas-iowa-ground-game-yet/" target="_blank">The 2020 Candidates Aren't Matching Obama's Iowa Ground Game (Yet)</a></h3>
-                <div class="date">December 16, 2019</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="http://fivethirtyeight.com/features/trump-clinton-field-offices/" target="_blank">Where Clinton is Setting Up Field Offices - And Where Trump Isn't</a></h3>
-                <div class="date">October 7, 2016</div>
-                <div class="note">Featured in the Daily Tar Heel, Vox (Oct 11 & Nov 7), CityLab, The Daily Beast</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="http://fivethirtyeight.com/features/trumps-scorning-of-data-may-not-hurt-him-but-itll-hurt-the-gop/" target="_blank">Trump's Scorning of Data May Not Hurt Him, but It'll Hurt the GOP</a></h3>
-                <div class="date">May 23, 2016</div>
-                <div class="note">Featured in The Huffington Post, What's the Point? podcast</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="http://fivethirtyeight.com/features/wisconsins-local-media-arent-as-trump-obsessed-as-national-outlets/" target="_blank">Wisconsin's Local Media Aren't As Trump-Obsessed as National Outlets</a></h3>
-                <div class="date">April 5, 2016</div>
-                <div class="note">Featured in The Huffington Post</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="http://fivethirtyeight.com/features/sanderss-iowa-ground-game-is-good-but-it-aint-obamas/" target="_blank">Sanders' Iowa Ground Game is Good - But It Ain't Obama's</a></h3>
-                <div class="date">January 22, 2016</div>
-                <div class="note">Featured in Christian Science Monitor</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="http://fivethirtyeight.com/features/marco-rubios-lousy-ground-game-in-iowa-will-probably-cost-him-votes/" target="_blank">Marco Rubio's Lousy Ground Game in Iowa Will Probably Cost Him Votes</a></h3>
-                <div class="date">December 17, 2015</div>
-                <div class="note">Featured in POLITICO, Bloomberg View, Commentary, Newsmax</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3>Liveblogs: <a href="https://fivethirtyeight.com/live-blog/iowa-caucus-2020-election-live/" target="_blank">Iowa caucuses 2020</a>, <a href="https://fivethirtyeight.com/live-blog/new-hampshire-primary-2020/" target="_blank">New Hampshire primary 2020</a></h3>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>The Boston Globe</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://www.bostonglobe.com/2022/06/16/opinion/future-opinion-journalism-is-hyperlocal/" target="_blank">The future of opinion journalism is hyperlocal</a></h3>
-                <div class="date">June 16, 2022</div>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>Trusting News</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://medium.com/trusting-news/how-should-journalists-talk-about-polarizing-statements-by-politicians-we-tested-it-1617968a94e7" target="_blank">How should journalists talk about polarizing statements by politicians? We tested it</a></h3>
-                <div class="date">December 1, 2022</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="https://medium.com/trusting-news/research-insights-what-we-learned-testing-an-anti-polarization-checklist-with-news-consumers-a3c448f836be" target="_blank">Research insights: What we learned testing an anti-polarization checklist with news consumers</a></h3>
-                <div class="date">September 2, 2022</div>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>Mischiefs of Faction</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://www.mischiefsoffaction.com/post/2020-ground-game" target="_blank">In 2020, the ground game is all Trump</a></h3>
-                <div class="date">October 9, 2020</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="https://www.vox.com/mischiefs-of-faction/2017/11/16/16665756/shrinking-democratic-ground-game" target="_blank">The incredible shrinking Democratic ground game</a></h3>
-                <div class="date">November 16, 2017</div>
-                <div class="note">Featured in Bloomberg, Vox</div>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>The Washington Post: Monkey Cage Blog</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://www.washingtonpost.com/politics/2019/09/10/no-trump-isnt-teflon-scandals-lower-his-approval-among-republicans-if-they-see-news/" target="_blank">No, Trump isn't Teflon. Scandals lower his approval among Republicans — if they see the news</a></h3>
-                <div class="date">September 10, 2019</div>
-                <div class="authors">w/ Nathan Kalmoe, Kathleen Searles, Mingxiao Sui, Ray Pingree, Brian Watson, Kirill Bryanov, and Martina Santia</div>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>Scientific American</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://www.scientificamerican.com/article/why-losing-our-newspapers-is-breaking-our-politics/" target="_blank">Why losing our newspapers is breaking our politics</a></h3>
-                <div class="date">March 26, 2019</div>
-                <div class="authors">w/ Matthew Hitt and Johanna Dunaway</div>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>The Conversation</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://theconversation.com/local-newspapers-can-help-reduce-polarization-with-opinion-pages-that-focus-on-local-issues-158834" target="_blank">Local newspapers can reduce polarization with opinion pages that focus on local issues</a></h3>
-                <div class="date">May 27, 2021</div>
-                <div class="authors">w/ Johanna Dunaway and Matthew Hitt</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="https://theconversation.com/46-218-news-transcripts-show-ideologically-extreme-politicians-get-more-airtime-154456" target="_blank">46,218 news transcripts show ideologically extreme politicians get more airtime</a></h3>
-                <div class="date">February 16, 2021</div>
-                <div class="authors">w/ Jeremy Padgett and Johanna Dunaway</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="https://theconversation.com/when-newspapers-close-voters-become-more-partisan-108416" target="_blank">When newspapers close, voters become more partisan</a></h3>
-                <div class="date">February 11, 2019</div>
-                <div class="authors">w/ Matthew Hitt and Johanna Dunaway</div>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>Center for Media Engagement, University of Texas at Austin</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://mediaengagement.org/blogs/opinion-pages-and-polarization/" target="_blank">How a local opinion page can slow polarization</a></h3>
-                <div class="date">July 23, 2021</div>
-                <div class="authors">w/ Matthew Hitt and Johanna Dunaway</div>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>Nieman Journalism Lab</h2>
-            
-            <div class="publication-item">
-                <h3><a href="https://www.niemanlab.org/2020/12/legislatures-will-tackle-the-local-news-crisis/" target="_blank">Legislatures will tackle the local news crisis</a></h3>
-                <div class="date">December 18, 2020</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="https://www.niemanlab.org/2019/12/all-that-campaign-cash-will-make-the-medias-problems-worse/" target="_blank">All that campaign cash will make the media's problems worse</a></h3>
-                <div class="date">December 30, 2019</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="http://www.niemanlab.org/2018/12/the-nationalization-of-political-news-will-accelerate/" target="_blank">The nationalization of political news will accelerate</a></h3>
-                <div class="date">December 12, 2018</div>
-            </div>
-        </div>
-        
-        <div class="publication-section">
-            <h2>London School of Economics: USAPP Blog</h2>
-            
-            <div class="publication-item">
-                <h3><a href="http://blogs.lse.ac.uk/usappblog/2016/09/29/targeting-local-newspapers-can-be-an-effective-tactic-for-campaign-field-offices/" target="_blank">Targeting local newspapers can be an effective tactic for campaign field offices</a></h3>
-                <div class="date">September 29, 2016</div>
-            </div>
-            
-            <div class="publication-item">
-                <h3><a href="http://blogs.lse.ac.uk/usappblog/2014/05/12/when-placed-strategically-campaign-field-offices-can-be-very-important-in-turning-battleground-states-during-presidential-elections/" target="_blank">When placed strategically, campaign field offices can be very important in turning battleground states during presidential elections</a></h3>
-                <div class="date">May 12, 2014</div>
-            </div>
-        </div>
+
+<nav>
+  <a href="index.html" class="nav-brand">Joshua P. Darr</a>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="lab.html">Local NExT Lab</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="writing.html" class="active">Writing</a></li>
+    <li><a href="media.html">Media</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="section-tag">Public Scholarship</div>
+    <h1>Commentary &amp; Writing</h1>
+    <p>Public writing on local news, campaigns, and democracy.</p>
+  </div>
+</div>
+
+<div class="writing-body">
+
+  <div class="outlet-section">
+    <div class="outlet-heading">FiveThirtyEight</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://fivethirtyeight.com/features/local-news-coverage-is-declining-and-that-could-be-bad-for-american-politics/" target="_blank">Local News Coverage is Declining — And That Could Be Bad for American Politics</a>
+      </div>
+      <div class="date">Jun 2, 2021</div>
     </div>
-    
-    <footer>
-        <p>&copy; 2025 Joshua P. Darr | <a href="mailto:jpdarr@syr.edu">jpdarr@syr.edu</a> | <a href="index.html">Back to Home</a></p>
-    </footer>
-    
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('active');
-        }
-        
-        // Close menu when clicking a link
-        document.querySelectorAll('#nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('nav-menu').classList.remove('active');
-            });
-        });
-    </script>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://fivethirtyeight.com/features/the-2020-candidates-arent-matching-obamas-iowa-ground-game-yet/" target="_blank">The 2020 Candidates Aren't Matching Obama's Iowa Ground Game (Yet)</a>
+      </div>
+      <div class="date">Dec 16, 2019</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="http://fivethirtyeight.com/features/trump-clinton-field-offices/" target="_blank">Where Clinton is Setting Up Field Offices — And Where Trump Isn't</a>
+        <div class="note">Featured in Vox, CityLab, The Daily Beast</div>
+      </div>
+      <div class="date">Oct 7, 2016</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="http://fivethirtyeight.com/features/trumps-scorning-of-data-may-not-hurt-him-but-itll-hurt-the-gop/" target="_blank">Trump's Scorning of Data May Not Hurt Him, but It'll Hurt the GOP</a>
+        <div class="note">Featured in The Huffington Post, What's the Point? podcast</div>
+      </div>
+      <div class="date">May 23, 2016</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="http://fivethirtyeight.com/features/wisconsins-local-media-arent-as-trump-obsessed-as-national-outlets/" target="_blank">Wisconsin's Local Media Aren't As Trump-Obsessed as National Outlets</a>
+        <div class="note">Featured in The Huffington Post</div>
+      </div>
+      <div class="date">Apr 5, 2016</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="http://fivethirtyeight.com/features/sanderss-iowa-ground-game-is-good-but-it-aint-obamas/" target="_blank">Sanders' Iowa Ground Game is Good — But It Ain't Obama's</a>
+        <div class="note">Featured in Christian Science Monitor</div>
+      </div>
+      <div class="date">Jan 22, 2016</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="http://fivethirtyeight.com/features/marco-rubios-lousy-ground-game-in-iowa-will-probably-cost-him-votes/" target="_blank">Marco Rubio's Lousy Ground Game in Iowa Will Probably Cost Him Votes</a>
+        <div class="note">Featured in POLITICO, Bloomberg View, Commentary, Newsmax</div>
+      </div>
+      <div class="date">Dec 17, 2015</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        Liveblogs: <a href="https://fivethirtyeight.com/live-blog/iowa-caucus-2020-election-live/" target="_blank">Iowa caucuses 2020</a> &nbsp;·&nbsp; <a href="https://fivethirtyeight.com/live-blog/new-hampshire-primary-2020/" target="_blank">New Hampshire primary 2020</a>
+      </div>
+      <div class="date">2020</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">The Boston Globe</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://www.bostonglobe.com/2022/06/16/opinion/future-of-opinion-journalism-is-hyperlocal/" target="_blank">The future of opinion journalism is hyperlocal</a>
+      </div>
+      <div class="date">Jun 16, 2022</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">Trusting News</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://medium.com/trusting-news/how-should-journalists-talk-about-polarizing-statements-by-politicians-we-tested-it-1617968a94e7" target="_blank">How should journalists talk about polarizing statements by politicians? We tested it</a>
+      </div>
+      <div class="date">Dec 1, 2022</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://medium.com/trusting-news/research-insights-what-we-learned-testing-an-anti-polarization-checklist-with-news-consumers-a3c448f836be" target="_blank">Research insights: What we learned testing an anti-polarization checklist with news consumers</a>
+      </div>
+      <div class="date">Sep 2, 2022</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">Mischiefs of Faction</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://www.mischiefsoffaction.com/post/2020-ground-game" target="_blank">In 2020, the ground game is all Trump</a>
+      </div>
+      <div class="date">Oct 9, 2020</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://www.vox.com/mischiefs-of-faction/2017/11/16/16665756/shrinking-democratic-ground-game" target="_blank">The incredible shrinking Democratic ground game</a>
+        <div class="note">Featured in Bloomberg, Vox</div>
+      </div>
+      <div class="date">Nov 16, 2017</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">The Washington Post: Monkey Cage</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://www.washingtonpost.com/politics/2019/09/10/no-trump-isnt-teflon-scandals-lower-his-approval-among-republicans-if-they-see-news/" target="_blank">No, Trump isn't Teflon. Scandals lower his approval among Republicans — if they see the news</a>
+        <div class="authors">With Nathan Kalmoe, Kathleen Searles, Mingxiao Sui, Ray Pingree, Brian Watson, Kirill Bryanov, and Martina Santia</div>
+      </div>
+      <div class="date">Sep 10, 2019</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">Scientific American</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://www.scientificamerican.com/article/why-losing-our-newspapers-is-breaking-our-politics/" target="_blank">Why losing our newspapers is breaking our politics</a>
+        <div class="authors">With Matthew Hitt and Johanna Dunaway</div>
+      </div>
+      <div class="date">Mar 26, 2019</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">The Conversation</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://theconversation.com/local-newspapers-can-help-reduce-polarization-with-opinion-pages-that-focus-on-local-issues-158834" target="_blank">Local newspapers can reduce polarization with opinion pages that focus on local issues</a>
+        <div class="authors">With Johanna Dunaway and Matthew Hitt</div>
+      </div>
+      <div class="date">May 27, 2021</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://theconversation.com/46-218-news-transcripts-show-ideologically-extreme-politicians-get-more-airtime-154456" target="_blank">46,218 news transcripts show ideologically extreme politicians get more airtime</a>
+        <div class="authors">With Jeremy Padgett and Johanna Dunaway</div>
+      </div>
+      <div class="date">Feb 16, 2021</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://theconversation.com/when-newspapers-close-voters-become-more-partisan-108416" target="_blank">When newspapers close, voters become more partisan</a>
+        <div class="authors">With Matthew Hitt and Johanna Dunaway</div>
+      </div>
+      <div class="date">Feb 11, 2019</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">Nieman Journalism Lab</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://www.niemanlab.org/2020/12/legislatures-will-tackle-the-local-news-crisis/" target="_blank">Legislatures will tackle the local news crisis</a>
+      </div>
+      <div class="date">Dec 18, 2020</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://www.niemanlab.org/2019/12/all-that-campaign-cash-will-make-the-medias-problems-worse/" target="_blank">All that campaign cash will make the media's problems worse</a>
+      </div>
+      <div class="date">Dec 30, 2019</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="http://www.niemanlab.org/2018/12/the-nationalization-of-political-news-will-accelerate/" target="_blank">The nationalization of political news will accelerate</a>
+      </div>
+      <div class="date">Dec 12, 2018</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">Center for Media Engagement, University of Texas at Austin</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="https://mediaengagement.org/blogs/opinion-pages-and-polarization/" target="_blank">How a local opinion page can slow polarization</a>
+        <div class="authors">With Matthew Hitt and Johanna Dunaway</div>
+      </div>
+      <div class="date">Jul 23, 2021</div>
+    </div>
+  </div>
+
+  <div class="outlet-section">
+    <div class="outlet-heading">London School of Economics: USAPP Blog</div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="http://blogs.lse.ac.uk/usappblog/2016/09/29/targeting-local-newspapers-can-be-an-effective-tactic-for-campaign-field-offices/" target="_blank">Targeting local newspapers can be an effective tactic for campaign field offices</a>
+      </div>
+      <div class="date">Sep 29, 2016</div>
+    </div>
+    <div class="writing-item">
+      <div class="writing-item-left">
+        <a href="http://blogs.lse.ac.uk/usappblog/2014/05/12/when-placed-strategically-campaign-field-offices-can-be-very-important-in-turning-battleground-states-during-presidential-elections/" target="_blank">When placed strategically, campaign field offices can be very important in turning battleground states during presidential elections</a>
+      </div>
+      <div class="date">May 12, 2014</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <h4>Joshua P. Darr</h4>
+    <p>Associate Professor, S.I. Newhouse School<br>
+    Director, Local NExT Lab<br>
+    Senior Researcher, IDJC<br>
+    Syracuse University</p>
+  </div>
+  <div>
+    <h4>Navigate</h4>
+    <p>
+      <a href="index.html">Home</a><br>
+      <a href="about.html">About</a><br>
+      <a href="lab.html">Local NExT Lab</a><br>
+      <a href="research.html">Research</a><br>
+      <a href="media.html">Media</a>
+    </p>
+  </div>
+  <div>
+    <h4>Connect</h4>
+    <p>
+      <a href="mailto:jpdarr@syr.edu">jpdarr@syr.edu</a><br>
+      <a href="https://scholar.google.com/citations?user=RSOzvUAAAAAJ">Google Scholar</a><br>
+      <a href="#">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-menu').classList.toggle('active');
+  }
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('nav-menu').classList.remove('active');
+    });
+  });
+</script>
 </body>
 </html>
